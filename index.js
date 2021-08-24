@@ -7,13 +7,13 @@ import postRoutes from "./routes/posts.js";
 
 const app = express();
 
-// use express middleware to connect routes to the application
-app.use("/posts", postRoutes); // http://localhost:5000/posts
-
 // setup bodyParser to be able to properly send our requests
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+
+// use express middleware to connect routes to the application
+app.use("/posts", postRoutes); // http://localhost:5000/posts
 
 // https://www.mongodb.com/cloud/atlas
 const CONNECTION_URL =
